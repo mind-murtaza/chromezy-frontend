@@ -1,0 +1,90 @@
+{
+    "name": "chromezy-frontend",
+    "version": "1.0.0",
+    "description": "Chromezy - Pixel-perfect software agency website with advanced animations",
+    "private": true,
+    "packageManager": "yarn@1.22.22",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "lint:fix": "next lint --fix",
+        "type-check": "tsc --noEmit",
+        "test": "vitest",
+        "test:ui": "vitest --ui",
+        "test:e2e": "playwright test",
+        "test:e2e:ui": "playwright test --ui",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
+        "format": "prettier --write . --ignore-path .gitignore",
+        "format:check": "prettier --check . --ignore-path .gitignore",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "next": "^14.2.0",
+        "react": "^18.3.0",
+        "react-dom": "^18.3.0",
+        "typescript": "^5.4.0",
+        "@next/font": "^14.2.0",
+        "framer-motion": "^11.0.0",
+        "gsap": "^3.12.0",
+        "lenis": "^1.1.13",
+        "lucide-react": "^0.379.0",
+        "clsx": "^2.1.1",
+        "tailwind-merge": "^2.3.0",
+        "@radix-ui/react-slot": "^1.0.2",
+        "class-variance-authority": "^0.7.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.0",
+        "@types/react": "^18.3.0",
+        "@types/react-dom": "^18.3.0",
+        "tailwindcss": "^3.4.0",
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38",
+        "@tailwindcss/typography": "^0.5.13",
+        "eslint": "^9.15.0",
+        "eslint-config-next": "^15.0.3",
+        "@typescript-eslint/eslint-plugin": "^8.15.0",
+        "@typescript-eslint/parser": "^8.15.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "@eslint/eslintrc": "^3.2.0",
+        "@eslint/js": "^9.15.0",
+        "prettier": "^3.4.2",
+        "prettier-plugin-tailwindcss": "^0.6.10",
+        "husky": "^9.1.7",
+        "vitest": "^2.1.5",
+        "vite": "^6.0.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "@testing-library/dom": "^10.4.0",
+        "jsdom": "^24.0.0",
+        "@testing-library/react": "^15.0.0",
+        "@testing-library/jest-dom": "^6.4.0",
+        "@testing-library/user-event": "^14.5.0",
+        "@playwright/test": "^1.43.0",
+        "@storybook/react": "^8.0.0",
+        "@storybook/nextjs": "^8.0.0",
+        "@storybook/addon-essentials": "^8.0.0",
+        "@storybook/addon-a11y": "^8.0.0",
+        "storybook": "^8.0.0",
+        "webpack": "^5.96.1"
+    },
+    "engines": {
+        "node": ">=18.17.0",
+        "yarn": ">=1.22.22"
+    },
+    "browserslist": {
+        "production": [
+            ">0.3%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+# Chromezy Frontend - E2E Testing Dockerfile
+# Specialized container for Playwright end-to-end testing
+
+FROM mcr.microsoft.com/playwright:v1.43.0-jammy
+
+# Set working directory
+WORKDIR /app
+
+# Install Node.js 18
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+# Copy package files
+COPY package.json yarn.lock* ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile && yarn cache clean
+
+# Install Playwright browsers
+RUN npx playwright install --with-deps
+
+# Copy source code
+COPY . .
+
+# Create directories for test artifacts
+RUN mkdir -p test-results playwright-report
+
+# Set environment variables
+ENV NODE_ENV=test
+ENV CI=true
+
+# Run E2E tests
+CMD ["yarn", "test:e2e"]
