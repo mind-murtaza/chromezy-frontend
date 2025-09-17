@@ -1,11 +1,9 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        // Enable App Router
-        appDir: true,
-        // Optimize server components
-        serverComponentsExternalPackages: [],
-    },
+    // Next 15: use serverExternalPackages (replaces experimental.serverComponentsExternalPackages)
+    serverExternalPackages: [],
 
     // Performance optimizations
     images: {
@@ -28,14 +26,8 @@ const nextConfig = {
             {
                 source: '/(.*)',
                 headers: [
-                    {
-                        key: 'X-Frame-Options',
-                        value: 'DENY',
-                    },
-                    {
-                        key: 'X-Content-Type-Options',
-                        value: 'nosniff',
-                    },
+                    { key: 'X-Frame-Options', value: 'DENY' },
+                    { key: 'X-Content-Type-Options', value: 'nosniff' },
                     {
                         key: 'Referrer-Policy',
                         value: 'origin-when-cross-origin',
@@ -49,66 +41,17 @@ const nextConfig = {
         ];
     },
 
-    // Webpack optimizations
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-        // Optimize bundle size
+    // Minimal webpack customizations
+    webpack: config => {
         config.resolve.alias = {
             ...config.resolve.alias,
             '@': path.resolve(__dirname),
         };
-
-        // Optimize for production
-        if (!dev && !isServer) {
-            config.optimization.splitChunks = {
-                chunks: 'all',
-                cacheGroups: {
-                    default: false,
-                    vendors: false,
-                    // Vendor chunk
-                    vendor: {
-                        chunks: 'all',
-                        test: /node_modules/,
-                        name: 'vendor',
-                        priority: 20,
-                        enforce: true,
-                    },
-                    // Animation libraries chunk
-                    animations: {
-                        chunks: 'all',
-                        test: /[\\/]node_modules[\\/](framer-motion|gsap|@studio-freight\/lenis)/,
-                        name: 'animations',
-                        priority: 30,
-                        enforce: true,
-                    },
-                    // Common chunk
-                    common: {
-                        chunks: 'all',
-                        minChunks: 2,
-                        name: 'common',
-                        priority: 10,
-                        enforce: true,
-                    },
-                },
-            };
-        }
-
         return config;
     },
 
-    // Enable source maps in production for better debugging
+    // Source maps in prod (disabled by default)
     productionBrowserSourceMaps: false,
-
-    // Optimize fonts
-    optimizeFonts: true,
-
-    // Bundle analyzer (optional)
-    ...(process.env.ANALYZE === 'true' && {
-        experimental: {
-            ...nextConfig.experimental,
-        },
-    }),
 };
-
-const path = require('path');
 
 module.exports = nextConfig;

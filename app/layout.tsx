@@ -1,30 +1,47 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '@/styles/globals.css';
+import Footer from '@/app/_components/Footer';
+import Header from '@/app/_components/Header';
+import ScrollBallImage from '@/app/_components/ScrollBallImage';
+import ScrollTriangleImage from '@/app/_components/ScrollTriangleImage';
+import ScrollWhiteBall from '@/app/_components/ScrollWhiteBall';
+import '@/app/_styles/globals.css';
+import { Sora, Inter } from 'next/font/google';
 
-const inter = Inter({
+const SoraFont = Sora({
     subsets: ['latin'],
     display: 'swap',
-    variable: '--font-inter',
+    variable: '--SoraFont',
 });
 
+const InterFont = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--InterFont',
+});
+
+/** Metadata for SEO and social sharing */
 export const metadata: Metadata = {
-    title: 'Chromezy - Premium Software Agency',
-    description:
-        'Pixel-perfect, animated frontend built with Next.js 14, TypeScript, and advanced motion libraries.',
-    keywords: 'software agency, web development, React, Next.js, TypeScript',
-    authors: [{ name: 'Murtaza Lightwala' }],
-    viewport: 'width=device-width, initial-scale=1',
+    title: 'Chromezy',
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+/**
+ * RootLayout: wraps all pages with header, global animations, content, and footer.
+ * @param children React nodes for each page's content.
+ */
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={inter.variable}>
-            <body className={`${inter.className} antialiased`}>{children}</body>
+        <html lang="en" className="overflow-x-hidden scroll-smooth" suppressHydrationWarning>
+            <body
+                className={`font-sora h-full overflow-x-hidden bg-[#151A2C] bg-contain text-white ${SoraFont.variable} ${InterFont.variable} antialiased`}
+                id="Home"
+            >
+                <Header />
+                <ScrollBallImage />
+                <ScrollTriangleImage />
+                <ScrollWhiteBall />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }

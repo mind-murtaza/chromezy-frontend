@@ -1,11 +1,17 @@
 import '@testing-library/jest-dom';
+import { vi, beforeAll, afterAll } from 'vitest';
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
-    constructor() {}
+    root: Element | null = null;
+    rootMargin: string = '0px';
+    thresholds: ReadonlyArray<number> = [0];
+    
+    constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
     disconnect() {}
-    observe() {}
-    unobserve() {}
+    observe(_target: Element) {}
+    unobserve(_target: Element) {}
+    takeRecords(): IntersectionObserverEntry[] { return []; }
 };
 
 // Mock ResizeObserver
@@ -19,7 +25,7 @@ global.ResizeObserver = class ResizeObserver {
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: vi.fn().mockImplementation(query => ({
+    value: vi.fn().mockImplementation((query: string) => ({
         matches: false,
         media: query,
         onchange: null,
@@ -38,7 +44,7 @@ Object.defineProperty(window, 'scrollTo', {
 });
 
 // Mock requestAnimationFrame
-global.requestAnimationFrame = vi.fn(cb => setTimeout(cb, 16));
+global.requestAnimationFrame = vi.fn((cb: FrameRequestCallback) => setTimeout(cb, 16));
 global.cancelAnimationFrame = vi.fn();
 
 // Silence console errors during tests
