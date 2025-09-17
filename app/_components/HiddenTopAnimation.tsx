@@ -20,9 +20,7 @@ function HiddenTopAnimation({
         width >= maxScreen ? 0 : 1,
     ]);
 
-    return (
-        <motion.div style={{ opacity }}>{children}</motion.div>
-    );
+    return <motion.div style={{ opacity }}>{children}</motion.div>;
 }
 
 export default HiddenTopAnimation;

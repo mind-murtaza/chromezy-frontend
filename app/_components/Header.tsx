@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from 'react';
 import Logo from '@/app/_components/Logo';
 import SearchHeader from '@/app/_components/SearchHeader';

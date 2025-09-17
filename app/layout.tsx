@@ -28,9 +28,17 @@ export const metadata: Metadata = {
  * RootLayout: wraps all pages with header, global animations, content, and footer.
  * @param children React nodes for each page's content.
  */
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     return (
-        <html lang="en" className="overflow-x-hidden scroll-smooth" suppressHydrationWarning>
+        <html
+            lang="en"
+            className="overflow-x-hidden scroll-smooth"
+            suppressHydrationWarning
+        >
             <body
                 className={`font-sora h-full overflow-x-hidden bg-[#151A2C] bg-contain text-white ${SoraFont.variable} ${InterFont.variable} antialiased`}
                 id="Home"

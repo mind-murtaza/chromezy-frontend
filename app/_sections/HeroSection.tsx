@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import BackgroundHeroSection from '../_components/BackgroundHeroSection';
 import HiddenTopAnimation from '../_components/HiddenTopAnimation';
 import Introduction from '../_components/Introduction';

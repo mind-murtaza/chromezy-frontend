@@ -9,7 +9,14 @@ import HeaderBtns from '@/app/_components/HeaderBtns';
 export default function NavLinks() {
     const [active, setActive] = useState<string>('Home');
     const links = useMemo(
-        () => ['Home', 'ExploreAI', 'Services', 'E-commerce', 'Products', 'Blogs'],
+        () => [
+            'Home',
+            'ExploreAI',
+            'Services',
+            'E-commerce',
+            'Products',
+            'Blogs',
+        ],
         []
     );
 
@@ -19,8 +26,8 @@ export default function NavLinks() {
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
+            entries => {
+                entries.forEach(entry => {
                     if (entry.intersectionRatio >= 0.7) {
                         setActive(entry.target.id);
                     }
@@ -28,7 +35,7 @@ export default function NavLinks() {
             },
             { threshold: 0.7 }
         );
-        links.forEach((id) => {
+        links.forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
@@ -46,7 +53,10 @@ export default function NavLinks() {
     }, [links, active]);
 
     return (
-        <nav aria-label="Primary navigation" className="flex align-center h-full justify-between w-full">
+        <nav
+            aria-label="Primary navigation"
+            className="align-center flex h-full w-full justify-between"
+        >
             <ul className="font-inter flex h-full items-center gap-8 border-b border-[#ffffff1a] px-4 text-xs font-medium max-[1140px]:gap-6 max-[870px]:gap-4 max-[810px]:gap-3 max-md:hidden max-sm:hidden">
                 {links.map(item => (
                     <li

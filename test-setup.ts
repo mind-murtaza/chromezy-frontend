@@ -6,12 +6,17 @@ global.IntersectionObserver = class IntersectionObserver {
     root: Element | null = null;
     rootMargin: string = '0px';
     thresholds: ReadonlyArray<number> = [0];
-    
-    constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
+
+    constructor(
+        _callback: IntersectionObserverCallback,
+        _options?: IntersectionObserverInit
+    ) {}
     disconnect() {}
     observe(_target: Element) {}
     unobserve(_target: Element) {}
-    takeRecords(): IntersectionObserverEntry[] { return []; }
+    takeRecords(): IntersectionObserverEntry[] {
+        return [];
+    }
 };
 
 // Mock ResizeObserver
@@ -44,7 +49,9 @@ Object.defineProperty(window, 'scrollTo', {
 });
 
 // Mock requestAnimationFrame
-global.requestAnimationFrame = vi.fn((cb: FrameRequestCallback) => setTimeout(cb, 16));
+global.requestAnimationFrame = vi.fn((cb: FrameRequestCallback) =>
+    setTimeout(cb, 16)
+);
 global.cancelAnimationFrame = vi.fn();
 
 // Silence console errors during tests

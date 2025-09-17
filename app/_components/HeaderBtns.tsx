@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Link from 'next/link';
 
 /**
@@ -10,7 +10,10 @@ export default function HeaderBtns({
     handleClickNav: (nav: string) => void;
 }) {
     return (
-        <nav aria-label="Header actions" className="ml-auto flex items-center gap-8 max-lg:gap-4">
+        <nav
+            aria-label="Header actions"
+            className="ml-auto flex items-center gap-8 max-lg:gap-4"
+        >
             <Link href="#" className="text-xs font-medium">
                 About Us
             </Link>
