@@ -1,4 +1,4 @@
-import Ads from '@/app/_components/Ads';
+import Client from '@/app/_components/Client';
 import ClientsComments from '@/app/_sections/ClientsComments';
 import ContactUs from '@/app/_sections/ContactUs';
 import HeroSection from '@/app/_sections/HeroSection';
@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <main>
             <HeroSection />
-            <Ads />
+            <Client />
             <Products />
             <ClientsComments />
             <Blogs />
