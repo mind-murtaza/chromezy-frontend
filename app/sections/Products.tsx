@@ -17,7 +17,10 @@ export default function ProductsSection() {
     const reduceMotion = useReducedMotion();
 
     return (
-        <HiddenTopAnimation distance={SCROLL_DISTANCES.PRODUCTS_HIDDEN} maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}>
+        <HiddenTopAnimation
+            distance={SCROLL_DISTANCES.PRODUCTS_HIDDEN}
+            maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}
+        >
             {!reduceMotion && (
                 <VioletLight
                     className="left-[50%] h-[445px] w-[445px] translate-x-[-50%]"

@@ -2,19 +2,57 @@ import Image from 'next/image';
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaNodeJs } from 'react-icons/fa6';
-import { SiAngular, SiVuedotjs, SiExpress, SiAdobe, SiFigma, SiFlutter, SiKotlin, SiSwift, SiReact, SiPython, SiTableau, SiApachespark, SiDocker, SiKubernetes, SiGooglecloud, SiAmazon } from 'react-icons/si';
+import {
+    SiAngular,
+    SiVuedotjs,
+    SiExpress,
+    SiAdobe,
+    SiFigma,
+    SiFlutter,
+    SiKotlin,
+    SiSwift,
+    SiReact,
+    SiPython,
+    SiTableau,
+    SiApachespark,
+    SiDocker,
+    SiKubernetes,
+    SiGooglecloud,
+    SiAmazon,
+} from 'react-icons/si';
 import { CONTACT_INFO_DATA } from './constants';
 
 const AzureIcon = () => (
-    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden focusable="false">
+    <svg
+        viewBox="0 0 24 24"
+        width="1em"
+        height="1em"
+        aria-hidden
+        focusable="false"
+    >
         <path fill="currentColor" d="M3 20l9-18l5 9l-6 9H3z" />
         <path fill="currentColor" d="M13 20l8-6l-5-9l-3 15z" opacity=".8" />
     </svg>
 );
 
 const PowerBiIcon = () => (
-    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden focusable="false">
-        <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+    <svg
+        viewBox="0 0 24 24"
+        width="1em"
+        height="1em"
+        aria-hidden
+        focusable="false"
+    >
+        <rect
+            x="3"
+            y="6"
+            width="18"
+            height="12"
+            rx="2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+        />
         <rect x="7" y="10" width="2" height="6" rx="1" fill="currentColor" />
         <rect x="11" y="9" width="2" height="7" rx="1" fill="currentColor" />
         <rect x="15" y="11" width="2" height="5" rx="1" fill="currentColor" />
@@ -277,7 +315,11 @@ export const ServicesData = [
             { text: 'Power BI', icon: <PowerBiIcon />, iconColor: '#F2C811' },
             { text: 'Tableau', icon: <SiTableau />, iconColor: '#E97627' },
             { text: 'Amazon QuickSight' },
-            { text: 'Apache Spark', icon: <SiApachespark />, iconColor: '#E25A1C' },
+            {
+                text: 'Apache Spark',
+                icon: <SiApachespark />,
+                iconColor: '#E25A1C',
+            },
         ],
     },
     {
@@ -286,8 +328,16 @@ export const ServicesData = [
             { text: 'Azure', icon: <AzureIcon />, iconColor: '#0078D4' },
             { text: 'AWS', icon: <SiAmazon />, iconColor: '#FF9900' },
             { text: 'Docker', icon: <SiDocker />, iconColor: '#2496ED' },
-            { text: 'Kubernetes', icon: <SiKubernetes />, iconColor: '#326CE5' },
-            { text: 'Google Cloud', icon: <SiGooglecloud />, iconColor: '#4285F4' },
+            {
+                text: 'Kubernetes',
+                icon: <SiKubernetes />,
+                iconColor: '#326CE5',
+            },
+            {
+                text: 'Google Cloud',
+                icon: <SiGooglecloud />,
+                iconColor: '#4285F4',
+            },
             { text: 'Ola Krutrim' },
         ],
     },

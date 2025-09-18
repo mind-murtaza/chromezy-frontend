@@ -15,8 +15,16 @@ import { BLUR_BALL } from '@/app/lib/constants';
 export default function BlurBallAnimation() {
     const reduce = useReducedMotion();
     const { scrollY } = useScroll();
-    const top = useTransform(scrollY, BLUR_BALL.SCROLL_RANGE, BLUR_BALL.TOP_RANGE);
-    const scale = useTransform(scrollY, BLUR_BALL.SCROLL_RANGE, BLUR_BALL.SCALE_RANGE);
+    const top = useTransform(
+        scrollY,
+        BLUR_BALL.SCROLL_RANGE,
+        BLUR_BALL.TOP_RANGE
+    );
+    const scale = useTransform(
+        scrollY,
+        BLUR_BALL.SCROLL_RANGE,
+        BLUR_BALL.SCALE_RANGE
+    );
 
     return (
         !reduce && (

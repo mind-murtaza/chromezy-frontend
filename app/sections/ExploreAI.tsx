@@ -10,7 +10,11 @@ import SectionHeader from '@/app/components/SectionHeader';
 export default function ExploreAI() {
     return (
         <>
-            <section className="scroll-mt-[300px] space-y-12 p-20 max-md:px-6 max-sm:py-14" id="ExploreAI" aria-label="Featured Insights">
+            <section
+                className="scroll-mt-[300px] space-y-12 p-20 max-md:px-6 max-sm:py-14"
+                id="ExploreAI"
+                aria-label="Featured Insights"
+            >
                 <GoTopAnimation idx={1} startNumber={0}>
                     <SectionHeader
                         className="space-y-2"
@@ -20,9 +24,17 @@ export default function ExploreAI() {
                     />
                 </GoTopAnimation>
                 <GoTopAnimation idx={0} startNumber={0}>
-                    <div role="list" className="grid grid-cols-[repeat(auto-fill_,minmax(330px,1fr))] gap-[22px] max-sm:grid-cols-[repeat(auto-fill_,minmax(300px,1fr))]">
+                    <div
+                        role="list"
+                        className="grid grid-cols-[repeat(auto-fill_,minmax(330px,1fr))] gap-[22px] max-sm:grid-cols-[repeat(auto-fill_,minmax(300px,1fr))]"
+                    >
                         {ExploreAIData.map((el, idx) => (
-                            <InsightCard key={idx} image={el.image} title={el.title} description={el.description} />
+                            <InsightCard
+                                key={idx}
+                                image={el.image}
+                                title={el.title}
+                                description={el.description}
+                            />
                         ))}
                     </div>
                 </GoTopAnimation>

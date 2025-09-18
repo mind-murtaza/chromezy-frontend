@@ -13,7 +13,8 @@ const nextConfig = {
         minimumCacheTTL: 31536000,
         dangerouslyAllowSVG: true,
         contentDispositionType: 'attachment',
-        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+        contentSecurityPolicy:
+            "default-src 'self'; script-src 'none'; sandbox;",
     },
     compress: true,
     poweredByHeader: false,
@@ -24,8 +25,14 @@ const nextConfig = {
                 headers: [
                     { key: 'X-Frame-Options', value: 'DENY' },
                     { key: 'X-Content-Type-Options', value: 'nosniff' },
-                    { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
-                    { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'origin-when-cross-origin',
+                    },
+                    {
+                        key: 'Permissions-Policy',
+                        value: 'camera=(), microphone=(), geolocation=()',
+                    },
                 ],
             },
         ];
@@ -41,5 +48,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-

@@ -25,10 +25,14 @@ export default function NavLists() {
     return (
         <nav
             aria-label="Footer navigation"
-            className="font-inter flex h-fit w-[456px] justify-between gap-20 text-nowrap text-sm text-[#ffffff99] max-lg:gap-12 max-md:w-full max-md:justify-center max-sm:flex-col max-sm:w-full max-sm:gap-6"
+            className="font-inter flex h-fit w-[456px] justify-between gap-20 text-nowrap text-sm text-[#ffffff99] max-lg:gap-12 max-md:w-full max-md:justify-center max-sm:w-full max-sm:flex-col max-sm:gap-6"
         >
             {groups.map((group, groupIdx) => (
-                <ul key={groupIdx} className="w-[max(160px,14.65vw)] max-sm:w-full" aria-label={group.aria}>
+                <ul
+                    key={groupIdx}
+                    className="w-[max(160px,14.65vw)] max-sm:w-full"
+                    aria-label={group.aria}
+                >
                     {group.items.map((label, idx) => (
                         <li
                             key={idx}
@@ -41,7 +45,11 @@ export default function NavLists() {
                         </li>
                     ))}
                     <li className="mt-2 flex items-center justify-between py-2.5">
-                        <p className={`text-xl font-semibold ${group.cta.highlightClass}`}>{group.cta.label}</p>
+                        <p
+                            className={`text-xl font-semibold ${group.cta.highlightClass}`}
+                        >
+                            {group.cta.label}
+                        </p>
                         <IoIosArrowForward className="h-3 w-3 text-[#26272E]" />
                     </li>
                 </ul>

@@ -33,7 +33,10 @@ export default function NavLinks() {
         });
         // reset to Home when scrolled to top
         function onScroll() {
-            if (window.scrollY < INTERSECTION_CONFIG.SCROLL_THRESHOLD && active !== 'Home') {
+            if (
+                window.scrollY < INTERSECTION_CONFIG.SCROLL_THRESHOLD &&
+                active !== 'Home'
+            ) {
                 setActive('Home');
             }
         }

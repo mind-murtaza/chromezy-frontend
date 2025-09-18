@@ -12,7 +12,10 @@ import { SCROLL_DISTANCES, ANIMATION_BREAKPOINTS } from '@/app/lib/constants';
  */
 export default function Blogs() {
     return (
-        <HiddenTopAnimation distance={SCROLL_DISTANCES.BLOGS_HIDDEN} maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}>
+        <HiddenTopAnimation
+            distance={SCROLL_DISTANCES.BLOGS_HIDDEN}
+            maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}
+        >
             <section
                 className="grid scroll-mt-3 grid-cols-[repeat(auto-fill_,minmax(320px,1fr))] gap-10 p-20 max-md:px-6 max-sm:grid-cols-[repeat(auto-fill_,minmax(300px,1fr))] max-sm:gap-6 max-sm:py-14"
                 id="Blogs"

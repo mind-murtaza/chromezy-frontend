@@ -12,7 +12,7 @@ import { FORM_CONFIG } from '@/app/lib/constants';
 /**
  * Internal context shared by form primitives (Label, Input, TextArea).
  */
- type contextTypes = {
+type contextTypes = {
     register: UseFormRegister<FieldValues>;
     errors: FieldErrors<FieldValues>;
 };
@@ -26,7 +26,7 @@ const FormContext = createContext<contextTypes | null>(null);
  * - className: optional class override for the <form>
  * - mode: validation mode (react-hook-form)
  */
- type FormProps = {
+type FormProps = {
     children: React.ReactNode;
     onSubmit: (data: FieldValues) => void;
     defaultValues?: Record<string, unknown>;
@@ -37,17 +37,32 @@ const FormContext = createContext<contextTypes | null>(null);
 /**
  * Form: typed wrapper around react-hook-form with a small context to power inputs.
  */
-export function Form({ children, onSubmit, defaultValues, className, mode = 'onSubmit' }: FormProps) {
-    const options: Parameters<typeof useForm<FieldValues>>[0] = { 
-        mode: mode as 'onSubmit' | 'onChange' | 'onBlur' | 'onTouched' | 'all'
+export function Form({
+    children,
+    onSubmit,
+    defaultValues,
+    className,
+    mode = 'onSubmit',
+}: FormProps) {
+    const options: Parameters<typeof useForm<FieldValues>>[0] = {
+        mode: mode as 'onSubmit' | 'onChange' | 'onBlur' | 'onTouched' | 'all',
     };
     if (defaultValues) options.defaultValues = defaultValues;
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>(options);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FieldValues>(options);
 
     return (
         <FormContext.Provider value={{ register, errors }}>
-            <form className={className ?? 'space-y-3 text-[#141517] max-sm:space-y-4'} onSubmit={handleSubmit(onSubmit)}>
+            <form
+                className={
+                    className ?? 'space-y-3 text-[#141517] max-sm:space-y-4'
+                }
+                onSubmit={handleSubmit(onSubmit)}
+            >
                 {children}
             </form>
         </FormContext.Provider>
@@ -57,10 +72,21 @@ export function Form({ children, onSubmit, defaultValues, className, mode = 'onS
 /**
  * Label: small styled label bound to an input/textarea via htmlFor.
  */
-function Label({ id, children, className }: { id: string; children: React.ReactNode; className?: string }) {
+function Label({
+    id,
+    children,
+    className,
+}: {
+    id: string;
+    children: React.ReactNode;
+    className?: string;
+}) {
     return (
         <>
-            <label htmlFor={id} className={className ?? 'text-xs max-sm:text-sm'}>
+            <label
+                htmlFor={id}
+                className={className ?? 'text-xs max-sm:text-sm'}
+            >
                 {children}
             </label>
         </>
@@ -104,14 +130,20 @@ function Input({
                 placeholder={placeholder}
                 aria-invalid={hasError || undefined}
                 aria-describedby={hasError ? `${id}-error` : undefined}
-                className={className ?? 'h-9 max-sm:h-10 w-full rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
+                className={
+                    className ??
+                    'h-9 w-full rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm caret-black outline-none max-sm:h-10 max-sm:text-base'
+                }
                 {...register(id, {
                     required: FORM_CONFIG.MESSAGES.REQUIRED,
                     ...(rules || {}),
                 })}
             />
             {typeof errors[id]?.message === 'string' && (
-                <p id={`${id}-error`} className="text-[10px] max-sm:text-xs text-red-500">
+                <p
+                    id={`${id}-error`}
+                    className="text-[10px] text-red-500 max-sm:text-xs"
+                >
                     {errors[id]?.message}
                 </p>
             )}
@@ -122,7 +154,19 @@ function Input({
 /**
  * TextArea: multi-line input registered with react-hook-form.
  */
-function TextArea({ id, rows = 5, placeholder, rules, className }: { id: string; rows?: number; placeholder?: string; rules?: RegisterOptions<FieldValues, string>; className?: string }) {
+function TextArea({
+    id,
+    rows = 5,
+    placeholder,
+    rules,
+    className,
+}: {
+    id: string;
+    rows?: number;
+    placeholder?: string;
+    rules?: RegisterOptions<FieldValues, string>;
+    className?: string;
+}) {
     const context = useContext(FormContext);
     if (!context) {
         throw new Error('TextArea must be used within a FormProvider');
@@ -137,14 +181,20 @@ function TextArea({ id, rows = 5, placeholder, rules, className }: { id: string;
                 placeholder={placeholder}
                 aria-invalid={hasError || undefined}
                 aria-describedby={hasError ? `${id}-error` : undefined}
-                className={className ?? 'h-[104px] max-sm:h-[120px] w-full resize-none rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
+                className={
+                    className ??
+                    'h-[104px] w-full resize-none rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm caret-black outline-none max-sm:h-[120px] max-sm:text-base'
+                }
                 {...register(id, {
                     required: FORM_CONFIG.MESSAGES.REQUIRED,
                     ...(rules || {}),
                 })}
             />
             {typeof errors[id]?.message === 'string' && (
-                <p id={`${id}-error`} className="text-[10px] max-sm:text-xs text-red-500">
+                <p
+                    id={`${id}-error`}
+                    className="text-[10px] text-red-500 max-sm:text-xs"
+                >
                     {errors[id]?.message}
                 </p>
             )}

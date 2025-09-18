@@ -8,7 +8,11 @@ import { INTRODUCTION } from '@/app/lib/constants';
 
 function Introduction() {
     const { scrollY } = useScroll();
-    const gap = useTransform(scrollY, INTRODUCTION.SCROLL_RANGE, INTRODUCTION.GAP_RANGE);
+    const gap = useTransform(
+        scrollY,
+        INTRODUCTION.SCROLL_RANGE,
+        INTRODUCTION.GAP_RANGE
+    );
     const [gapWidth, setGapWidth] = useState(() => gap.get());
 
     useEffect(() => {

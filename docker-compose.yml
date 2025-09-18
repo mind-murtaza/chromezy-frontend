@@ -1,16 +1,16 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
-    container_name: next-app
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - NEXT_TELEMETRY_DISABLED=1
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
-    command: yarn dev
+    app:
+        build: .
+        container_name: next-app
+        ports:
+            - '3000:3000'
+        environment:
+            - NODE_ENV=development
+            - NEXT_TELEMETRY_DISABLED=1
+        volumes:
+            - .:/app
+            - /app/node_modules
+            - /app/.next
+        command: yarn dev

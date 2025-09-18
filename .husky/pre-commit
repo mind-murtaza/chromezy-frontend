@@ -1,23 +1,23 @@
-# #!/usr/bin/env sh
-# . "$(dirname -- "$0")/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-# # Run linting and formatting before commit
-# echo "🔍 Running pre-commit checks..."
+# Run linting and formatting before commit
+echo "🔍 Running pre-commit checks..."
 
-# # Check TypeScript
-# echo "📝 Type checking..."
-# yarn type-check
+# Check TypeScript
+echo "📝 Type checking..."
+yarn type-check
 
-# # Run ESLint
-# echo "🔧 Linting..."
-# yarn lint:fix
+# Run ESLint
+echo "🔧 Linting..."
+yarn lint:fix
 
-# # Format code with Prettier
-# echo "✨ Formatting code..."
-# yarn format
+# Format code with Prettier
+echo "✨ Formatting code..."
+yarn format
 
-# # Run tests (commented out for faster commits, enable in CI)
-# echo "🧪 Skipping tests (enable in CI)..."
-# # yarn test
+# Run tests (commented out for faster commits, enable in CI)
+echo "🧪 Skipping tests (enable in CI)..."
+# yarn test
 
-# echo "✅ Pre-commit checks passed!"
+echo "✅ Pre-commit checks passed!"

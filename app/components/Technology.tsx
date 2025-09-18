@@ -14,7 +14,11 @@ export default function Technology({ icon, text, iconColor }: TechnologyProps) {
         <>
             <div className="flex h-9 items-center gap-[6px] rounded-lg border border-[#1314161a] bg-[#ffffff1a] py-2 pl-3 pr-4">
                 {icon && (
-                    <span aria-hidden className="text-[20px] leading-none" style={iconColor ? { color: iconColor } : undefined}>
+                    <span
+                        aria-hidden
+                        className="text-[20px] leading-none"
+                        style={iconColor ? { color: iconColor } : undefined}
+                    >
                         {icon}
                     </span>
                 )}

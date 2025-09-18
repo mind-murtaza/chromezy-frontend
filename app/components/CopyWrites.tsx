@@ -16,14 +16,24 @@ export default function CopyWrites() {
                     <p>Chromezy, All Rights Reserved</p>
                     <p className="max-sm:hidden">|</p>
                     <p>
-                        Designed by <u>Murtaza Lightwala (Mindfire Solutions)</u>
+                        Designed by{' '}
+                        <u>Murtaza Lightwala (Mindfire Solutions)</u>
                     </p>
                 </div>
-                <nav aria-label="Social links" className="flex items-center gap-8">
+                <nav
+                    aria-label="Social links"
+                    className="flex items-center gap-8"
+                >
                     <p>Connect with us:</p>
                     <div className="flex items-center gap-4">
-                        {socialItems.map((item) => (
-                            <Link key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label}>
+                        {socialItems.map(item => (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={item.label}
+                            >
                                 {item.icon}
                             </Link>
                         ))}

@@ -3,7 +3,12 @@ import React, { useEffect, useState } from 'react';
 import ServicesField from '@/app/components/ServicesField';
 import { ServicesData } from '@/app/lib/Data';
 import GoTopAnimation from '@/app/components/GoTopAnimation';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import {
+    motion,
+    useScroll,
+    useTransform,
+    useReducedMotion,
+} from 'motion/react';
 
 /**
  * ServicesList: animated list of service categories and technologies.
@@ -33,10 +38,17 @@ export default function ServicesList() {
 
     return (
         <>
-            <motion.div className="flex w-[51%] flex-col gap-10 max-lg:w-full" style={animation}>
+            <motion.div
+                className="flex w-[51%] flex-col gap-10 max-lg:w-full"
+                style={animation}
+            >
                 {ServicesData.map((tech, idx) => (
                     <GoTopAnimation key={idx} idx={idx} startNumber={0}>
-                        <ServicesField title={tech.title} Services={tech.Services} idx={idx + 1} />
+                        <ServicesField
+                            title={tech.title}
+                            Services={tech.Services}
+                            idx={idx + 1}
+                        />
                     </GoTopAnimation>
                 ))}
             </motion.div>

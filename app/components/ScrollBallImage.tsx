@@ -1,5 +1,10 @@
 'use client';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import {
+    motion,
+    useScroll,
+    useTransform,
+    useReducedMotion,
+} from 'motion/react';
 import Image from 'next/image';
 import { SCROLL_BALL } from '@/app/lib/constants';
 
@@ -12,11 +17,31 @@ export default function ScrollBallImage() {
     const reduce = useReducedMotion();
     const { scrollY } = useScroll();
 
-    const top = useTransform(scrollY, SCROLL_BALL.RANGES, SCROLL_BALL.TOP_VALUES);
-    const right = useTransform(scrollY, SCROLL_BALL.RANGES, SCROLL_BALL.RIGHT_VALUES);
-    const size = useTransform(scrollY, SCROLL_BALL.RANGES, SCROLL_BALL.SIZE_VALUES);
-    const blur = useTransform(scrollY, SCROLL_BALL.RANGES, SCROLL_BALL.BLUR_VALUES);
-    const opacity = useTransform(scrollY, SCROLL_BALL.RANGES, SCROLL_BALL.OPACITY_VALUES);
+    const top = useTransform(
+        scrollY,
+        SCROLL_BALL.RANGES,
+        SCROLL_BALL.TOP_VALUES
+    );
+    const right = useTransform(
+        scrollY,
+        SCROLL_BALL.RANGES,
+        SCROLL_BALL.RIGHT_VALUES
+    );
+    const size = useTransform(
+        scrollY,
+        SCROLL_BALL.RANGES,
+        SCROLL_BALL.SIZE_VALUES
+    );
+    const blur = useTransform(
+        scrollY,
+        SCROLL_BALL.RANGES,
+        SCROLL_BALL.BLUR_VALUES
+    );
+    const opacity = useTransform(
+        scrollY,
+        SCROLL_BALL.RANGES,
+        SCROLL_BALL.OPACITY_VALUES
+    );
     const filter = useTransform(blur, b => `blur(${b}px)`);
 
     if (reduce) return null;

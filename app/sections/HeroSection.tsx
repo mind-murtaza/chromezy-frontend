@@ -10,7 +10,10 @@ import { SCROLL_DISTANCES, BREAKPOINTS } from '@/app/lib/constants';
  */
 export default function HeroSection() {
     return (
-        <HiddenTopAnimation distance={SCROLL_DISTANCES.HERO_HIDDEN} maxScreen={BREAKPOINTS.SM}>
+        <HiddenTopAnimation
+            distance={SCROLL_DISTANCES.HERO_HIDDEN}
+            maxScreen={BREAKPOINTS.SM}
+        >
             <BackgroundHeroSection />
             <Introduction />
         </HiddenTopAnimation>

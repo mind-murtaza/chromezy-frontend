@@ -37,7 +37,8 @@ export default function SideNavLinks() {
         touchEndX.current = e.touches[0]?.clientX ?? 0;
     };
     const onTouchEnd = () => {
-        if (touchStartX.current - touchEndX.current > CAROUSEL.SWIPE_THRESHOLD) setIsOpen(false);
+        if (touchStartX.current - touchEndX.current > CAROUSEL.SWIPE_THRESHOLD)
+            setIsOpen(false);
     };
 
     return (
