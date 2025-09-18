@@ -26,7 +26,7 @@ export default function ContactUsForm() {
             <Form onSubmit={handleSubmit}>
                 {fields.map(({ id, label, kind = 'input' }) => (
                     <div className="space-y-1" key={id}>
-                        <Form.Label id={id}>{label.replace("'", "&apos;")}</Form.Label>
+                        <Form.Label id={id}>{label}</Form.Label>
                         {kind === 'textarea' ? <Form.TextArea id={id} /> : <Form.Input id={id} />}
                     </div>
                 ))}

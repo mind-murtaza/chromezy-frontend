@@ -44,7 +44,7 @@ export function Form({ children, onSubmit, defaultValues, className, mode = 'onS
 
     return (
         <FormContext.Provider value={{ register, errors }}>
-            <form className={className ?? 'space-y-3 text-[#141517]'} onSubmit={handleSubmit(onSubmit)}>
+            <form className={className ?? 'space-y-3 text-[#141517] max-sm:space-y-4'} onSubmit={handleSubmit(onSubmit)}>
                 {children}
             </form>
         </FormContext.Provider>
@@ -57,7 +57,7 @@ export function Form({ children, onSubmit, defaultValues, className, mode = 'onS
 function Label({ id, children, className }: { id: string; children: React.ReactNode; className?: string }) {
     return (
         <>
-            <label htmlFor={id} className={className ?? 'text-xs'}>
+            <label htmlFor={id} className={className ?? 'text-xs max-sm:text-sm'}>
                 {children}
             </label>
         </>
@@ -101,14 +101,14 @@ function Input({
                 placeholder={placeholder}
                 aria-invalid={hasError || undefined}
                 aria-describedby={hasError ? `${id}-error` : undefined}
-                className={className ?? 'h-9 w-full rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm caret-black outline-none'}
+                className={className ?? 'h-9 max-sm:h-10 w-full rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
                 {...register(id, {
                     required: 'This Field Is Required',
                     ...(rules || {}),
                 })}
             />
             {typeof errors[id]?.message === 'string' && (
-                <p id={`${id}-error`} className="text-[10px] text-red-500">
+                <p id={`${id}-error`} className="text-[10px] max-sm:text-xs text-red-500">
                     {errors[id]?.message}
                 </p>
             )}
@@ -134,14 +134,14 @@ function TextArea({ id, rows = 5, placeholder, rules, className }: { id: string;
                 placeholder={placeholder}
                 aria-invalid={hasError || undefined}
                 aria-describedby={hasError ? `${id}-error` : undefined}
-                className={className ?? 'h-[104px] w-full resize-none rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm caret-black outline-none'}
+                className={className ?? 'h-[104px] max-sm:h-[120px] w-full resize-none rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
                 {...register(id, {
                     required: 'This Field Is Required',
                     ...(rules || {}),
                 })}
             />
             {typeof errors[id]?.message === 'string' && (
-                <p id={`${id}-error`} className="text-[10px] text-red-500">
+                <p id={`${id}-error`} className="text-[10px] max-sm:text-xs text-red-500">
                     {errors[id]?.message}
                 </p>
             )}

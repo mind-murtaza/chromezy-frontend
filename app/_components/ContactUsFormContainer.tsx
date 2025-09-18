@@ -30,7 +30,7 @@ export default function ContactUsFormContainer() {
 
     return (
             <motion.div
-                className="relative right-[50px] min-h-[638px] w-[35.35%] space-y-5 rounded-[20px] bg-[#DBEBFF] px-10 py-[50px] max-[850px]:w-[40%] max-md:right-0 max-md:m-10 max-md:w/[86%] max-md:p-6 max-sm:mx-0"
+                className="relative right-[50px] min-h-[638px] w-[35.35%] space-y-5 rounded-[20px] bg-[#DBEBFF] px-10 py-[50px] max-[850px]:w-[40%] max-md:right-0 max-md:m-10 max-md:w-[86%] max-md:p-6 max-sm:mx-0 max-[650px]:w-full"
                 style={{ overflow }}
             >
                 <p className="text-2xl font-semibold leading-5 text-[#141517]">Let&apos;s talk!</p>
