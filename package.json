@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Chromezy - Pixel-perfect software agency website with advanced animations",
     "private": true,
-    "packageManager": "yarn@1.22.22",
+    "packageManager": "yarn@1.22.19",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
@@ -73,7 +73,7 @@
     },
     "engines": {
         "node": ">=18.17.0",
-        "yarn": ">=1.22.22"
+        "yarn": ">=1.22.19"
     },
     "browserslist": {
         "production": [
