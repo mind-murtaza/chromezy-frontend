@@ -3,27 +3,29 @@ import React, { useEffect, useState } from 'react';
 import ContactUsForm from '@/app/_components/ContactUsForm';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import Image from 'next/image';
+import { CONTACT_FORM } from '@/app/_lib/constants';
 
 /**
  * ContactUsFormContainer: animated form panel with floating mail graphic.
+ * Uses centralized constants for maintainable animation values.
  */
 export default function ContactUsFormContainer() {
     const reduce = useReducedMotion();
     const { scrollY } = useScroll();
 
-    const [opacityState, setOpacityState] = useState<[number, number]>([1, 0.5]);
-    const top = useTransform(scrollY, [4550, 4750], [-90, -35]);
-    const right = useTransform(scrollY, [4550, 4750], [-18, -42]);
-    const heightMail = useTransform(scrollY, [4550, 4750], [130, 90]);
-    const widthMail = useTransform(scrollY, [4550, 4750], [167, 125]);
-    const bgColor = useTransform(scrollY, [4550, 4750], ['#AACFFE', '#DBEBFF']);
-    const opacity = useTransform(scrollY, [4550, 4760], opacityState);
-    const overflow = useTransform(scrollY, [4750, 4752], ['', 'hidden']);
+    const [opacityState, setOpacityState] = useState<[number, number]>(CONTACT_FORM.VALUES.OPACITY_STATES.INITIAL);
+    const top = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.POSITION, CONTACT_FORM.VALUES.TOP);
+    const right = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.POSITION, CONTACT_FORM.VALUES.RIGHT);
+    const heightMail = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.MAIL_SIZE, CONTACT_FORM.VALUES.MAIL_HEIGHT);
+    const widthMail = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.MAIL_SIZE, CONTACT_FORM.VALUES.MAIL_WIDTH);
+    const bgColor = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.MAIL_SIZE, CONTACT_FORM.VALUES.BG_COLOR);
+    const opacity = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.OPACITY, opacityState);
+    const overflow = useTransform(scrollY, CONTACT_FORM.SCROLL_RANGES.OVERFLOW, ['', 'hidden']);
 
     useEffect(() => {
         const unsubscribe = scrollY.on('change', (e: number) => {
-            if (e <= 4745) setOpacityState([1, 0.5]);
-            if (e >= 4752) setOpacityState([0.5, 1]);
+            if (e <= 4745) setOpacityState(CONTACT_FORM.VALUES.OPACITY_STATES.INITIAL);
+            if (e >= 4752) setOpacityState(CONTACT_FORM.VALUES.OPACITY_STATES.FINAL);
         });
         return () => unsubscribe?.();
     }, [scrollY]);

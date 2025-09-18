@@ -4,9 +4,11 @@ import GridText from './GridText';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useEffect, useState } from 'react';
 
+import { INTRODUCTION } from '@/app/_lib/constants';
+
 function Introduction() {
     const { scrollY } = useScroll();
-    const gap = useTransform(scrollY, [0, 650], [48, 0]);
+    const gap = useTransform(scrollY, INTRODUCTION.SCROLL_RANGE, INTRODUCTION.GAP_RANGE);
     const [gapWidth, setGapWidth] = useState(() => gap.get());
 
     useEffect(() => {

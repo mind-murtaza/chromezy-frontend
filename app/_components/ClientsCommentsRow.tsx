@@ -30,7 +30,7 @@ export default function ClientsCommentsRow({ ref, commentRef, controls }: Commen
               key={idx}
               description={client.description}
               name={client.name}
-              jobTitle={client.jopTitle}
+              jobTitle={client.jobTitle}
               rate={client.rate}
               country={client.country}
               project={client.project}

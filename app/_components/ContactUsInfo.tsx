@@ -1,8 +1,11 @@
 import React from 'react';
 import GoTopAnimation from './GoTopAnimation';
 import { MailIcon, PhoneIcon } from 'lucide-react';
+import { CONTACT_INFO_DATA } from '@/app/_lib/constants';
+
 /**
  * ContactUsInfo: heading and quick contact tiles.
+ * Uses centralized contact constants for maintainable information.
  */
 export default function ContactUsInfo() {
     return (
@@ -18,14 +21,14 @@ export default function ContactUsInfo() {
                             <PhoneIcon width={24} height={24} />
                             <p className="text-xs">Phone</p>
                         </div>
-                        <p className="font-semibold">+1 315 308 0901</p>
+                        <p className="font-semibold">{CONTACT_INFO_DATA.PHONE}</p>
                     </div>
                     <div className="flex items-center justify-between pt-4">
                         <div className="flex items-center gap-2">
                             <MailIcon width={24} height={24} />
                             <p className="text-xs">Email</p>
                         </div>
-                        <p className="font-semibold">sales@chromezy.com</p>
+                        <p className="font-semibold">{CONTACT_INFO_DATA.EMAIL}</p>
                     </div>
                 </div>
             </GoTopAnimation>

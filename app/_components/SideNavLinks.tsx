@@ -7,22 +7,21 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { IoIosArrowForward } from 'react-icons/io';
 import Logo from '@/app/_components/Logo';
 import { socialItems } from '@/app/_lib/Data';
+import { NAVIGATION, CAROUSEL } from '@/app/_lib/constants';
+
 /**
  * SideNavLinks: mobile navigation with swipe gestures and social links.
+ * Uses centralized navigation constants for maintainable menu items.
  */
 export default function SideNavLinks() {
     const [isOpen, setIsOpen] = useState(false);
     const touchStartX = useRef(0);
     const touchEndX = useRef(0);
 
-    const navItems = [
-        { id: 'Home', label: 'Home' },
-        { id: 'ExploreAI', label: 'Explore AI' },
-        { id: 'Services', label: 'Services' },
-        { id: 'E-commerce', label: 'E-commerce' },
-        { id: 'Products', label: 'Products' },
-        { id: 'Blogs', label: 'Blogs' },
-    ];
+    const navItems = NAVIGATION.MAIN_LINKS.map(link => ({
+        id: link,
+        label: link === 'ExploreAI' ? 'Explore AI' : link,
+    }));
 
     useEffect(() => {
         document.body.style.overflowY = isOpen ? 'hidden' : 'auto';
@@ -38,7 +37,7 @@ export default function SideNavLinks() {
         touchEndX.current = e.touches[0]?.clientX ?? 0;
     };
     const onTouchEnd = () => {
-        if (touchStartX.current - touchEndX.current > 60) setIsOpen(false);
+        if (touchStartX.current - touchEndX.current > CAROUSEL.SWIPE_THRESHOLD) setIsOpen(false);
     };
 
     return (

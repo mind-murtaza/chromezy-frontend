@@ -7,6 +7,7 @@ import {
     FieldValues,
     RegisterOptions,
 } from 'react-hook-form';
+import { FORM_CONFIG } from '@/app/_lib/constants';
 
 /**
  * Internal context shared by form primitives (Label, Input, TextArea).
@@ -37,7 +38,9 @@ const FormContext = createContext<contextTypes | null>(null);
  * Form: typed wrapper around react-hook-form with a small context to power inputs.
  */
 export function Form({ children, onSubmit, defaultValues, className, mode = 'onSubmit' }: FormProps) {
-    const options: Parameters<typeof useForm<FieldValues>>[0] = { mode };
+    const options: Parameters<typeof useForm<FieldValues>>[0] = { 
+        mode: mode as 'onSubmit' | 'onChange' | 'onBlur' | 'onTouched' | 'all'
+    };
     if (defaultValues) options.defaultValues = defaultValues;
 
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>(options);
@@ -103,7 +106,7 @@ function Input({
                 aria-describedby={hasError ? `${id}-error` : undefined}
                 className={className ?? 'h-9 max-sm:h-10 w-full rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
                 {...register(id, {
-                    required: 'This Field Is Required',
+                    required: FORM_CONFIG.MESSAGES.REQUIRED,
                     ...(rules || {}),
                 })}
             />
@@ -136,7 +139,7 @@ function TextArea({ id, rows = 5, placeholder, rules, className }: { id: string;
                 aria-describedby={hasError ? `${id}-error` : undefined}
                 className={className ?? 'h-[104px] max-sm:h-[120px] w-full resize-none rounded bg-[#ffffff99] py-2.5 pl-2 pr-4 text-sm max-sm:text-base caret-black outline-none'}
                 {...register(id, {
-                    required: 'This Field Is Required',
+                    required: FORM_CONFIG.MESSAGES.REQUIRED,
                     ...(rules || {}),
                 })}
             />

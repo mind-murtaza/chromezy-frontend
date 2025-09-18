@@ -2,9 +2,15 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import Image from 'next/image';
 
+import { SCROLL_DISTANCES } from '@/app/_lib/constants';
+
+/**
+ * BackgroundHeroSection: animated background elements for the hero section.
+ * Uses centralized scroll distances for maintainable animation triggers.
+ */
 function BackgroundHeroSection() {
     const { scrollY } = useScroll();
-    const opacity = useTransform(scrollY, [0, 750], [1, 0]);
+    const opacity = useTransform(scrollY, SCROLL_DISTANCES.HERO_FADE, [1, 0]);
 
     const shapes = [
         {

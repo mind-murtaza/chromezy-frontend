@@ -2,23 +2,15 @@
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import HeaderBtns from '@/app/_components/HeaderBtns';
+import { NAVIGATION, INTERSECTION_CONFIG } from '@/app/_lib/constants';
 
 /**
- * NavLinks: primary desktop navigation menu.
+ * NavLinks: primary desktop navigation menu with scroll-spy functionality.
+ * Uses centralized navigation constants for maintainable menu items.
  */
 export default function NavLinks() {
     const [active, setActive] = useState<string>('Home');
-    const links = useMemo(
-        () => [
-            'Home',
-            'ExploreAI',
-            'Services',
-            'E-commerce',
-            'Products',
-            'Blogs',
-        ],
-        []
-    );
+    const links = useMemo(() => [...NAVIGATION.MAIN_LINKS], []);
 
     function handleClickNav(nav: string) {
         setActive(nav);
@@ -33,7 +25,7 @@ export default function NavLinks() {
                     }
                 });
             },
-            { threshold: 0.7 }
+            { threshold: INTERSECTION_CONFIG.SCROLL_SPY_THRESHOLD }
         );
         links.forEach(id => {
             const section = document.getElementById(id);
@@ -41,7 +33,7 @@ export default function NavLinks() {
         });
         // reset to Home when scrolled to top
         function onScroll() {
-            if (window.scrollY < 100 && active !== 'Home') {
+            if (window.scrollY < INTERSECTION_CONFIG.SCROLL_THRESHOLD && active !== 'Home') {
                 setActive('Home');
             }
         }

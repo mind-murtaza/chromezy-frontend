@@ -1,9 +1,11 @@
 import React from 'react';
 import Logo from './Logo';
 import { MailIcon, PhoneIcon } from 'lucide-react';
+import { CONTACT_INFO_DATA } from '@/app/_lib/constants';
 
 /**
  * Details: footer brand blurb and contact details with small legal links.
+ * Uses centralized contact constants for maintainable information.
  */
 export default function Details() {
     return (
@@ -22,11 +24,11 @@ export default function Details() {
                 </div>
                 <div className="flex items-center gap-4" aria-label="Phone">
                     <PhoneIcon width={20} height={20} className="text-[#ffffffcc]" />
-                    <p className="font-semibold">+1 315 308 0901</p>
+                    <p className="font-semibold">{CONTACT_INFO_DATA.PHONE}</p>
                 </div>
                 <div className="flex items-center gap-4" aria-label="Email">
                     <MailIcon width={20} height={20} className="text-[#ffffffcc]" />
-                    <p className="font-semibold">sales@chromezy.com</p>
+                    <p className="font-semibold">{CONTACT_INFO_DATA.EMAIL}</p>
                 </div>
             </div>
         </>

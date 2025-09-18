@@ -7,19 +7,21 @@ import GoTopAnimation from '@/app/_components/GoTopAnimation';
 import SectionHeader from '@/app/_components/SectionHeader';
 import ProductsCardsRows from '@/app/_components/ProductsCardsRows';
 import VioletLight from '@/app/_components/VioletLight';
+import { SCROLL_DISTANCES, ANIMATION_BREAKPOINTS } from '@/app/_lib/constants';
 
 /**
  * ProductsSection: Product engineering showcase with animated backgrounds and cards.
+ * Uses centralized constants for maintainable scroll triggers and breakpoints.
  */
 export default function ProductsSection() {
     const reduceMotion = useReducedMotion();
 
     return (
-        <HiddenTopAnimation distance={[1200, 1750]} maxScreen={1300}>
+        <HiddenTopAnimation distance={SCROLL_DISTANCES.PRODUCTS_HIDDEN} maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}>
             {!reduceMotion && (
                 <VioletLight
                     className="left-[50%] h-[445px] w-[445px] translate-x-[-50%]"
-                    distance={[700, 800]}
+                    distance={SCROLL_DISTANCES.VIOLET_LIGHT.PRODUCTS}
                 />
             )}
             <section

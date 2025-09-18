@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaNodeJs } from 'react-icons/fa6';
 import { SiAngular, SiVuedotjs, SiExpress, SiAdobe, SiFigma, SiFlutter, SiKotlin, SiSwift, SiReact, SiPython, SiTableau, SiApachespark, SiDocker, SiKubernetes, SiGooglecloud, SiAmazon } from 'react-icons/si';
-import React from 'react';
+import { CONTACT_INFO_DATA } from './constants';
 
 const AzureIcon = () => (
     <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden focusable="false">
@@ -88,7 +89,7 @@ export const ClientsData = [
         description:
             "I'm thrilled with Chromezy's work. They developed inventory management, AI-powered demand forecasting, and smart route optimization on time and affordably. Onwards and upwards with Chromezy!",
         name: 'JEET OBERAI',
-        jopTitle: '(Entrepreneur), PayLoan',
+        jobTitle: '(Entrepreneur), PayLoan',
         rate: '4.8 / 5',
         project: 'Product Development',
         country: 'Singapore',
@@ -108,7 +109,7 @@ export const ClientsData = [
         description:
             'They are swift to respond and implement faster. Thanks to Chromezy for providing expert developers and on-time delivery to help scale our Cloud-based ERP SaaS solution that helped us automate workflows, and get an analytics dashboard for swift decision-making.',
         name: 'MARC DOLLON',
-        jopTitle: 'CTO, MasterStudy',
+        jobTitle: 'CTO, MasterStudy',
         rate: '5 / 5',
         project: 'SaaS-Based Cloud ERP',
         country: 'United States',
@@ -128,7 +129,7 @@ export const ClientsData = [
         description:
             'Highly responsive with keen attention to detail. Assisted in building my e-commerce platform, mapping transformative areas, resulting in exceptional customer experience.',
         name: 'BRANDON LAU',
-        jopTitle: '(CEO), KIRI Journey',
+        jobTitle: '(CEO), KIRI Journey',
         rate: '5 / 5',
         project: 'E-commerce Development',
         country: 'HongKong',
@@ -148,7 +149,7 @@ export const ClientsData = [
         description:
             'We are Campion Savings Club based in Zimbabwe, South Africa, UK, USA and Australia. Chromezy is very professional, efficient, and reliable.',
         name: 'JEFTA MUGWENI',
-        jopTitle: '(CEO), Campion Savings Club',
+        jobTitle: '(CEO), Campion Savings Club',
         rate: '5 / 5',
         project: 'Custom CRM MVP Development',
         country: 'Zimbabwe',
@@ -314,19 +315,20 @@ export const ExploreAIData = [
     },
 ];
 
+/** Social media links with icons - centralized for reuse */
 export const socialItems = [
     {
-        href: 'https://www.facebook.com/MindfireSolutions',
+        href: CONTACT_INFO_DATA.SOCIAL_URLS.FACEBOOK,
         label: 'Facebook',
         icon: <FaFacebook />,
     },
     {
-        href: 'https://www.instagram.com/mindfiresolutions/',
+        href: CONTACT_INFO_DATA.SOCIAL_URLS.INSTAGRAM,
         label: 'Instagram',
         icon: <FaInstagram />,
     },
     {
-        href: 'https://www.linkedin.com/company/mindfire-solutions/',
+        href: CONTACT_INFO_DATA.SOCIAL_URLS.LINKEDIN,
         label: 'LinkedIn',
         icon: <FaLinkedin />,
     },

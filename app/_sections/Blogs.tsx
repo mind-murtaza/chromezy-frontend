@@ -4,13 +4,15 @@ import GoTopAnimation from '@/app/_components/GoTopAnimation';
 import { BlogsData } from '@/app/_lib/Data';
 import HiddenTopAnimation from '@/app/_components/HiddenTopAnimation';
 import SectionHeader from '@/app/_components/SectionHeader';
+import { SCROLL_DISTANCES, ANIMATION_BREAKPOINTS } from '@/app/_lib/constants';
 
 /**
  * Blogs: featured insight stories grid.
+ * Uses centralized constants for maintainable scroll triggers and breakpoints.
  */
 export default function Blogs() {
     return (
-        <HiddenTopAnimation distance={[2655, 3350]} maxScreen={1300}>
+        <HiddenTopAnimation distance={SCROLL_DISTANCES.BLOGS_HIDDEN} maxScreen={ANIMATION_BREAKPOINTS.SERVICES_ANIMATION}>
             <section
                 className="grid scroll-mt-3 grid-cols-[repeat(auto-fill_,minmax(320px,1fr))] gap-10 p-20 max-md:px-6 max-sm:grid-cols-[repeat(auto-fill_,minmax(300px,1fr))] max-sm:gap-6 max-sm:py-14"
                 id="Blogs"

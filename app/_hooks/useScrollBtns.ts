@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { CommentsController } from '@/app/_Types/ControllerType';
+import { CAROUSEL } from '@/app/_lib/constants';
 
 /**
  * useScrollBtns: manages swipe-based pagination for a carousel.
@@ -15,7 +16,7 @@ export function useScrollBtns({ ref, commentRef, controls }: CommentsController)
     const total = ref.current?.childElementCount ?? 0;
     if (count < total - visible) {
       setCount(c => c + 1);
-      setSwipe(s => s - (width + 32));
+      setSwipe(s => s - (width + CAROUSEL.GAP_SIZE));
     }
   }
 
@@ -24,7 +25,7 @@ export function useScrollBtns({ ref, commentRef, controls }: CommentsController)
     if (count > 0) {
       const width = commentRef.current?.offsetWidth ?? 0;
       setCount(c => c - 1);
-      setSwipe(s => s + (width + 32));
+      setSwipe(s => s + (width + CAROUSEL.GAP_SIZE));
     }
   }
 
