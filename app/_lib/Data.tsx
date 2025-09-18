@@ -1,5 +1,24 @@
 import Image from 'next/image';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaNodeJs } from 'react-icons/fa6';
+import { SiAngular, SiVuedotjs, SiExpress, SiAdobe, SiFigma, SiFlutter, SiKotlin, SiSwift, SiReact, SiPython, SiTableau, SiApachespark, SiDocker, SiKubernetes, SiGooglecloud, SiAmazon } from 'react-icons/si';
+import React from 'react';
+
+const AzureIcon = () => (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden focusable="false">
+        <path fill="currentColor" d="M3 20l9-18l5 9l-6 9H3z" />
+        <path fill="currentColor" d="M13 20l8-6l-5-9l-3 15z" opacity=".8" />
+    </svg>
+);
+
+const PowerBiIcon = () => (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden focusable="false">
+        <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="7" y="10" width="2" height="6" rx="1" fill="currentColor" />
+        <rect x="11" y="9" width="2" height="7" rx="1" fill="currentColor" />
+        <rect x="15" y="11" width="2" height="5" rx="1" fill="currentColor" />
+    </svg>
+);
 
 export const ProductsData = [
     {
@@ -215,66 +234,25 @@ export const ServicesData = [
     {
         title: 'Web App Development',
         Services: [
-            {
-                text: 'React',
-                image: 'React.png',
-            },
-            {
-                text: 'Node',
-                image: 'Js.png',
-            },
-            {
-                text: 'Angular',
-                image: 'Angular.png',
-            },
-            {
-                text: 'Vue',
-                image: 'Vue.png',
-            },
-            {
-                text: 'ExpressJs',
-                image: 'Express.png',
-            },
-            {
-                text: 'AdobeXD',
-                image: 'Xd.png',
-            },
-            {
-                text: 'Figma',
-                image: 'Figma.png',
-            },
-            {
-                text: 'Whimsical',
-            },
+            { text: 'React', icon: <SiReact />, iconColor: '#61DAFB' },
+            { text: 'Node', icon: <FaNodeJs />, iconColor: '#539E43' },
+            { text: 'Angular', icon: <SiAngular />, iconColor: '#DD0031' },
+            { text: 'Vue', icon: <SiVuedotjs />, iconColor: '#41B883' },
+            { text: 'ExpressJs', icon: <SiExpress />, iconColor: '#888888' },
+            { text: 'AdobeXD', icon: <SiAdobe />, iconColor: '#FF2BC2' },
+            { text: 'Figma', icon: <SiFigma />, iconColor: '#F24E1E' },
+            { text: 'Whimsical' },
         ],
     },
     {
         title: 'Mobile App Development',
         Services: [
-            {
-                text: 'Flutter',
-                image: 'Flutter.png',
-            },
-            {
-                text: 'Kotlin',
-                image: 'Kotlin.png',
-            },
-            {
-                text: 'swift',
-                image: 'Swifth.png',
-            },
-            {
-                text: 'React Native',
-                image: 'React.png',
-            },
-            {
-                text: 'AdobeXD',
-                image: 'Xd.png',
-            },
-            {
-                text: 'Figma',
-                image: 'Figma.png',
-            },
+            { text: 'Flutter', icon: <SiFlutter />, iconColor: '#02569B' },
+            { text: 'Kotlin', icon: <SiKotlin />, iconColor: '#A97BFF' },
+            { text: 'Swift', icon: <SiSwift />, iconColor: '#FA7343' },
+            { text: 'React Native', icon: <SiReact />, iconColor: '#61DAFB' },
+            { text: 'AdobeXD', icon: <SiAdobe />, iconColor: '#FF2BC2' },
+            { text: 'Figma', icon: <SiFigma />, iconColor: '#F24E1E' },
         ],
     },
     {
@@ -294,53 +272,22 @@ export const ServicesData = [
     {
         title: 'Analytics',
         Services: [
-            {
-                text: 'Python',
-                image: 'Python.png',
-            },
-            {
-                text: 'PowerBI',
-                image: 'PowerBI.png',
-            },
-            {
-                text: 'Tableau',
-                image: 'Tableau.png',
-            },
-            {
-                text: 'Amazon QuickSight',
-            },
-            {
-                text: 'Apache Spark',
-                image: 'Tableau.png',
-            },
+            { text: 'Python', icon: <SiPython />, iconColor: '#3776AB' },
+            { text: 'Power BI', icon: <PowerBiIcon />, iconColor: '#F2C811' },
+            { text: 'Tableau', icon: <SiTableau />, iconColor: '#E97627' },
+            { text: 'Amazon QuickSight' },
+            { text: 'Apache Spark', icon: <SiApachespark />, iconColor: '#E25A1C' },
         ],
     },
     {
         title: 'Data & Cloud',
         Services: [
-            {
-                text: 'Azure',
-                image: 'Azure.png',
-            },
-            {
-                text: 'AWS',
-                image: 'AWS.png',
-            },
-            {
-                text: 'Docker',
-                image: 'Docker.png',
-            },
-            {
-                text: 'Kubernetes',
-                image: 'Kubernetes.png',
-            },
-            {
-                text: 'Google Cloud',
-                image: 'Google Cloud.png',
-            },
-            {
-                text: 'Ola Krutrim',
-            },
+            { text: 'Azure', icon: <AzureIcon />, iconColor: '#0078D4' },
+            { text: 'AWS', icon: <SiAmazon />, iconColor: '#FF9900' },
+            { text: 'Docker', icon: <SiDocker />, iconColor: '#2496ED' },
+            { text: 'Kubernetes', icon: <SiKubernetes />, iconColor: '#326CE5' },
+            { text: 'Google Cloud', icon: <SiGooglecloud />, iconColor: '#4285F4' },
+            { text: 'Ola Krutrim' },
         ],
     },
 ];
