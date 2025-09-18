@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import Footer from '@/app/_components/Footer';
-import Header from '@/app/_components/Header';
-import ScrollBallImage from '@/app/_components/ScrollBallImage';
-import ScrollTriangleImage from '@/app/_components/ScrollTriangleImage';
-import ScrollWhiteBall from '@/app/_components/ScrollWhiteBall';
-import '@/app/_styles/globals.css';
+import Footer from '@/app/components/Footer';
+import Header from '@/app/components/Header';
+import ScrollBallImage from '@/app/components/ScrollBallImage';
+import ScrollTriangleImage from '@/app/components/ScrollTriangleImage';
+import ScrollWhiteBall from '@/app/components/ScrollWhiteBall';
+import '@/app/styles/globals.css';
 import { Sora, Inter } from 'next/font/google';
 
 const SoraFont = Sora({

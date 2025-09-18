@@ -1,14 +1,13 @@
 # Chromezy - Premium Software Agency Website
 
-> Pixel-perfect, animated frontend built with Next.js 14, TypeScript, and advanced motion libraries.
+> Pixel-perfect, animated frontend built with Next.js 15, TypeScript, and modern motion libraries.
 
 ## 🚀 **Overview**
 
 Chromezy is a modern software agency website featuring:
 
-- ⚡ **Next.js 14** with App Router and TypeScript
-- 🎨 **Advanced Animations** via Framer Motion + GSAP
-- 🎭 **Smooth Scrolling** with Lenis
+- ⚡ **Next.js 15** with App Router and TypeScript
+- 🎨 **Advanced Animations** via Motion (`motion/react`)
 - 💎 **Glass Morphism** and gradient effects
 - 📱 **Responsive Design** with Tailwind CSS
 - ♿ **Accessibility First** (WCAG 2.1 AA)
@@ -18,39 +17,32 @@ Chromezy is a modern software agency website featuring:
 
 ### **Core**
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 15+ (App Router)
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS
-- **Animations**: Framer Motion + GSAP
-- **Smooth Scroll**: @studio-freight/lenis
+- **Animations**: Motion (`motion/react`)
 
 ### **Development**
 
-- **Testing**: Vitest + Playwright + RTL
+- **Testing**: Vitest + Playwright + React Testing Library
 - **Linting**: ESLint (strict) + Prettier
 - **Documentation**: Storybook
-- **Icons**: Lucide React
+- **Icons**: react-icons, Lucide React
+- **Utilities**: clsx, tailwind-merge, class-variance-authority, @radix-ui/react-slot
 
 ## 🏗️ **Project Structure**
 
 ```
-├── app/                    # Next.js App Router
-│   ├── (marketing)/       # Marketing pages (SSG)
-│   ├── (app)/            # App pages (SSR)
-│   └── api/              # API routes
-├── components/           # React components
-│   ├── ui/              # Primitive components
-│   ├── sections/        # Page sections
-│   ├── layouts/         # Layout components
-│   └── animations/      # Motion wrappers
-├── lib/                 # Utilities & configs
-│   ├── animations.ts    # Animation presets
-│   ├── utils.ts        # Utility functions
-│   └── constants.ts    # App constants
-├── hooks/              # Custom hooks
-├── types/              # TypeScript definitions
-├── styles/             # Global styles
-└── public/             # Static assets
+├── app/                         # Next.js App Router
+│   ├── components/            # UI components
+│   ├── sections/              # Page sections
+│   ├── hooks/                 # Custom hooks
+│   ├── lib/                   # Data & constants
+│   │   ├── Data.tsx            # Centralized mock data
+│   │   └── constants.ts        # Animation and UI constants
+│   └── Types/                 # Shared TS types
+├── styles/                      # Global styles
+└── public/                      # Static assets
 ```
 
 ## 🎯 **Getting Started**
@@ -68,8 +60,8 @@ Chromezy is a modern software agency website featuring:
 git clone <repository-url>
 cd chromezy-frontend
 
-# Start development environment
-./scripts/docker-dev.sh start
+# Build and run (hot reload)
+docker compose up --build
 
 # Open browser
 open http://localhost:3000
@@ -91,42 +83,35 @@ open http://localhost:3000
 ### **Docker Development Commands**
 
 ```bash
-# Start development environment
-./scripts/docker-dev.sh start
+# Start dev container (hot reload)
+docker compose up --build
 
-# View logs
-./scripts/docker-dev.sh logs
+# Follow logs
+docker compose logs -f
 
-# Run tests
-./scripts/docker-dev.sh test
+# Open a shell inside the container
+docker compose exec app sh
 
-# Start Storybook
-./scripts/docker-dev.sh storybook
-
-# Open container shell
-./scripts/docker-dev.sh shell
-
-# Stop all services
-./scripts/docker-dev.sh stop
-
-# See all commands
-./scripts/docker-dev.sh help
+# Stop and remove
+docker compose down
 ```
 
 ### **Available Scripts**
 
 ```bash
-yarn dev          # Development server
-yarn build        # Production build
-yarn start        # Production server
-yarn lint         # Run ESLint
-yarn lint:fix     # Fix linting issues
-yarn type-check   # TypeScript check
-yarn test         # Run unit tests
-yarn test:e2e     # Run E2E tests
-yarn storybook    # Start Storybook
-yarn format       # Format with Prettier
-yarn format:check # Check formatting
+yarn dev            # Development server (Next.js)
+yarn build          # Production build (Next.js)
+yarn start          # Production server
+yarn lint           # Run ESLint
+yarn lint:fix       # Fix linting issues
+yarn type-check     # TypeScript check
+yarn test           # Run unit tests (Vitest)
+yarn test:ui        # Vitest UI
+yarn test:e2e       # Run E2E tests (Playwright)
+yarn storybook      # Start Storybook
+yarn build-storybook# Build Storybook static site
+yarn format         # Format with Prettier
+yarn format:check   # Check formatting
 ```
 
 ## 🎨 **Design System**
@@ -167,7 +152,6 @@ yarn format:check # Check formatting
 
 ### **Animations**
 
-- Smooth scroll with Lenis
 - Parallax backgrounds (performance-optimized)
 - Staggered card reveals
 - Morphing glass effects
@@ -177,43 +161,22 @@ yarn format:check # Check formatting
 
 ### **Architecture**
 
-- **Multi-stage builds** for development, testing, and production
-- **Hot reload** with volume mounting for instant changes
-- **Service profiles** for different development needs
-- **Optimized caching** with anonymous volumes
+- Single service: `app` (Next.js dev server on port 3000)
+- Hot reload via bind mount of project directory
+- Node modules and .next cached as anonymous volumes
 
-### **Services Available**
-
-- `app` - Main development server (port 3000)
-- `storybook` - Component documentation (port 6006)
-- `test-ui` - Interactive testing (port 51204)
-- `e2e` - End-to-end testing with Playwright
-- `prod` - Production build testing (port 3001)
-
-### **Development Workflow**
+### **Workflow**
 
 ```bash
-# Start development
-./scripts/docker-dev.sh start
+# Start dev server
+docker compose up --build
 
-# Make changes to code (auto-reloads)
+# Edit code locally; app reloads automatically
 # View at http://localhost:3000
 
-# Run tests
-./scripts/docker-dev.sh test
-
-# Build Storybook
-./scripts/docker-dev.sh storybook
-
-# Test production build
-./scripts/docker-dev.sh prod
+# Stop
+docker compose down
 ```
-
-### **Debugging**
-
-- Node.js debugger available on port 9229
-- Attach VS Code debugger to container
-- Full source maps in development mode
 
 ## 🔧 **Development Guidelines**
 
@@ -256,41 +219,4 @@ export const motionVariants = {
 - Bundle analysis with `@next/bundle-analyzer`
 - Performance monitoring with Web Vitals
 
-### **SEO Strategy**
-
-- SSG for marketing pages
-- ISR for dynamic content
-- Structured data markup
-- Meta tag optimization
-- Sitemap generation
-
-## 🧪 **Testing Strategy**
-
-- **Unit**: Component logic and utilities
-- **Integration**: Data fetching and routing
-- **E2E**: Critical user journeys
-- **Visual**: Screenshot regression (Storybook)
-- **A11y**: Accessibility testing
-
-## 📚 **Documentation**
-
-For detailed project information, development guides, and roadmap:
-
-- **[📋 Project Roadmap](./docs/ROADMAP.md)** - Development phases and milestones
-- **[📚 Full Documentation](./docs/)** - Comprehensive guides and specifications
-
-## 👥 **Contributing**
-
-1. Follow the [Agent.md](./Agent.md) standards
-2. Use conventional commits
-3. Write tests for new features
-4. Ensure accessibility compliance
-5. Update documentation (see [docs/](./docs/))
-
-## 📄 **License**
-
-Private - Chromezy Frontend Assignment
-
----
-
-**Built with ❤️ following pixel-perfect standards and performance-first principles.**
+**Built with ❤️ by Murtaza Lightwala (Mindfire Solutions)**

@@ -1,11 +1,11 @@
-import Client from '@/app/_components/Client';
-import ClientsComments from '@/app/_sections/ClientsComments';
-import ContactUs from '@/app/_sections/ContactUs';
-import HeroSection from '@/app/_sections/HeroSection';
-import ExploreAI from '@/app/_sections/ExploreAI';
-import Products from '@/app/_sections/Products';
-import Blogs from '@/app/_sections/Blogs';
-import Services from '@/app/_sections/Services';
+import Client from '@/app/components/Client';
+import ClientsComments from '@/app/sections/ClientsComments';
+import ContactUs from '@/app/sections/ContactUs';
+import HeroSection from '@/app/sections/HeroSection';
+import ExploreAI from '@/app/sections/ExploreAI';
+import Products from '@/app/sections/Products';
+import Blogs from '@/app/sections/Blogs';
+import Services from '@/app/sections/Services';
 
 /**
  * Home page combining all sections into a single scrollable layout.
